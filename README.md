@@ -21,10 +21,14 @@ GET 導回首頁。
 **`/assets/css/index.css`**
 
 ### 自訂風格
-**`/assets/css/custom.css`**
+~~**`/assets/css/custom.css`**~~
+**`/member/css/custom.css`**
+**`/wp_member/css/custom.css`**
 
 ### 華麗風格
-**`/assets/css/fancy.css`**
+~~**`/assets/css/fancy.css`**~~
+**`/member/css/fancy.css`**
+**`/wp_member/css/fancy.css`**
 
 ## 網址改寫
 **`.htaccess`**
@@ -33,3 +37,8 @@ GET 導回首頁。
 
 ### 重新導向到路徑
 **`/member/css/custom.css`**
+
+## WordPress 方式
+**`/wp_member/css/custom.css`**
+
+直接指定風格路徑，由 **`$_SESSION['theme']`** 決定。

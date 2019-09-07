@@ -61,6 +61,7 @@
     <link href="/assets/css/index.css" rel="stylesheet" type="text/css" />
 <?php if (!empty($_SESSION['theme'])): ?>
     <link href="/assets/css/<?php echo @$_SESSION['theme']; ?>.css" rel="stylesheet" type="text/css" />
+    <link href="/wp_member/css/<?php echo @$_SESSION['theme']; ?>.css" rel="stylesheet" type="text/css" />
 <?php endif; ?>
   </head>
   <body class="index">
