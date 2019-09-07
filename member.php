@@ -43,7 +43,17 @@
 
     if (!empty( $_GET['task'] ) && $_GET['task'] == 'assets') {
         if ($isLogin) {
-            header('Location: /member/css/' . $_GET['theme'] . '.css');
+            //header('Location: /member/css/' . $_GET['theme'] . '.css'); // 302 Found 重新導向方法。
+            try {
+                $staticFile = fopen(__DIR__ . '/member/css/' . $_GET['theme'] . '.css', 'r');
+                $responseStream = fopen('php://stdout', 'w');
+                stream_copy_to_stream($staticFile, $responseStream);
+            } catch (Exception $e) {
+                throw $e;
+            } finally {
+                fclose($staticFile);
+                fclose($responseStream);
+            }
             exit;
         } else {
             http_response_code(404);

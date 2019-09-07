@@ -49,3 +49,9 @@ GET 導回首頁。
 **`/wp_member/css/custom.css`**
 
 直接指定風格路徑，由 **`$_SESSION['theme']`** 決定。
+
+## 改用有效率又不消耗記憶體的串流讀檔傳輸
+不使用 302 Found 重新導向方法。
+
+### 參考文章
+[How to Read Big Files with PHP (Without Killing Your Server) — SitePoint](https://www.sitepoint.com/performant-reading-big-files-php/)
