@@ -1,0 +1,39 @@
+html, body {
+  margin: 0
+}
+
+.index {
+  margin: 1rem
+}
+
+.table {
+  display: table
+}
+
+.row {
+  display: table-row
+}
+
+.col {
+  display: table-cell;
+  padding: 0.25rem 1rem 0.25rem 0
+}
+
+a {
+  text-decoration: none;
+}
+
+.nav {
+  float: left;
+}
+
+.nav a {
+  padding: 0 1.5rem 0 0.5rem;
+}
+
+.header:after {
+  margin-left: 0.25rem;
+  vertical-align: super;
+  font-size: 0.5rem;
+  content: '首頁風格'
+}
