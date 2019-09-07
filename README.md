@@ -10,6 +10,11 @@ POST http://localhost:8080/member.php
 
 user=user&pwd=password
 
+## 儲存風格
+POST http://localhost:8080/member.php
+
+task=theme&theme=custom
+
 ## 登出
 POST http://localhost:8080/member.php
 
@@ -23,13 +28,13 @@ GET 導回首頁。
 **`/assets/css/index.css`**
 
 ### 自訂風格
-~~**`/assets/css/custom.css`**~~
-**`/member/css/custom.css`**
+~~**`/assets/css/custom.css`**~~  
+**`/member/css/custom.css`**  
 **`/wp_member/css/custom.css`**
 
 ### 華麗風格
-~~**`/assets/css/fancy.css`**~~
-**`/member/css/fancy.css`**
+~~**`/assets/css/fancy.css`**~~  
+**`/member/css/fancy.css`**  
 **`/wp_member/css/fancy.css`**
 
 ## 網址改寫
