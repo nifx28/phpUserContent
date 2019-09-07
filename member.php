@@ -8,7 +8,6 @@
         //echo 'Hash = ' . password_hash('password', PASSWORD_DEFAULT) . "\n";
         echo 'POST "user" = "' . (@$_POST['user'] ?: '') . "\"\n";
         //echo 'POST "pwd" = "' . (@$_POST['pwd'] ?: '') . "\"\n";
-        echo 'Auth = ' . auth();
     }
 
     function auth() {
