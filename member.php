@@ -24,6 +24,30 @@
         }
     }
 
+    function getMimeContentType($name) { // 不是所有平台都支援 mime_content_type() 或 Fileinfo 功能。
+        $mime_types = [
+            'css' => 'text/css',
+            'js' => 'application/javascript',
+            'png' => 'image/png',
+            'jpeg' => 'image/jpeg',
+            'jpg' => 'image/jpeg',
+            'gif' => 'image/gif',
+            'bmp' => 'image/bmp',
+            'ico' => 'image/vnd.microsoft.icon',
+            'svg' => 'image/svg+xml',
+            'svgz' => 'image/svg+xml',
+        ];
+
+        $fileext = explode('.', $name); // Notice:  Only variables should be passed by reference.
+        $ext = strtolower(array_pop($fileext));
+
+        if (array_key_exists($ext, $mime_types)) {
+            return $mime_types[$ext];
+        } else {
+            return 'application/octet-stream';
+        }
+    }
+
     if (!empty( $_POST['task'] ) && $_POST['task'] == 'theme') {
         $_SESSION['theme'] = htmlspecialchars( $_POST['theme'], ENT_COMPAT | ENT_HTML401, 'ISO-8859-1');
     }
@@ -45,8 +69,11 @@
         if ($isLogin) {
             //header('Location: /member/css/' . $_GET['theme'] . '.css'); // 302 Found 重新導向方法。
             try {
-                $staticFile = fopen(__DIR__ . '/member/css/' . $_GET['theme'] . '.css', 'r');
-                $responseStream = fopen('php://stdout', 'w');
+                $fileName = __DIR__ . '/member/css/' . $_GET['theme'] . '.css';
+                $staticFile = fopen($fileName, 'rb');
+                $responseStream = fopen('php://output', 'wb');
+                ini_set('default_charset', ''); // 移除 PHP 5.6 新增的預設值 ;charset=UTF-8。
+                header('Content-Type: ' . getMimeContentType($fileName));
                 stream_copy_to_stream($staticFile, $responseStream);
             } catch (Exception $e) {
                 throw $e;
